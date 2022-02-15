@@ -3,13 +3,22 @@ const express = require('express'); //node's framework, eases construction in no
 const app = express(); //way to call and use express
 //const app = require('express')(); //shortcut, sample only, wrong practice
 
-app.set('view engine', config.server.view);
+app.set('view engine', config.server.view)
+    .use('/assets/img', express.static(__dirname + '/assets/img/'))
+    .use('/assets/files', express.static(__dirname + '/assets/files/'))
+    .use('/assets/css', express.static(__dirname + '/assets/css/'))
+    .use('/assets/js', express.static(__dirname + '/assets/js/'))
+    .use('/assets/webfonts', express.static(__dirname + '/assets/webfonts/'));
 //express.static() - loading of static resources
 //app.use('/img',express.static(__dirname + '/assets/img'));
 
 
 app.get('/',(req,res)=>{
-    res.send('HELLO WORLD');
+    //res.send('HELLO WORLD');
+    res.render('index',{
+        //locals = obj prop for view vars
+        title:"Marc's Web Portfolio"
+    });
 });
 
 

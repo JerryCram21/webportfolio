@@ -10,7 +10,6 @@
   "author": "Jerry Marc T. Hermoso",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.1.3",
     "ejs": "^3.1.6",
     "express": "^4.17.2"
   }
